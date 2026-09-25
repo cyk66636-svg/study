@@ -1,0 +1,23 @@
+# Link Numeric Citations
+
+为论文和演示文稿中的数字引用添加到对应参考文献的可点击跳转。
+
+## 支持格式
+
+- Word（DOCX）
+- PowerPoint（PPTX）
+- Markdown 和 HTML
+- PDF（优先从可编辑源文件添加链接，再导出并检查）
+
+技能会先检查文件实际格式，再按格式处理；会保持现有引用样式，并核对编号与参考文献的对应关系。PPTX 中的普通内部链接只能跳转到幻灯片；如需精确定位到某条文献，可为每条文献设置单独的附录页。
+
+## 安装
+
+将 `link-numeric-citations` 文件夹复制到支持 Agent Skills 的工具的个人技能目录中。例如：
+
+- Codex：`%USERPROFILE%/.codex/skills/`
+- Claude Code：`%USERPROFILE%/.claude/skills/`
+
+安装后，相关工具会在处理带编号引用的论文、演示文稿或导出文档时读取 `SKILL.md`。其他模型或客户端需要支持 Agent Skills 格式，才能自动发现和调用该技能。
+
+本技能负责引用编号和文末条目的导航链接；文献检索、真实性核验以及来源是否支持正文论述，需要另外核查。
