@@ -1,20 +1,20 @@
 ---
 name: link-numeric-citations
-description: Use when a paper, presentation, or exported document has numbered citations that should navigate to the matching reference-list entries.
+description: Use when a paper, presentation, or exported document has numbered citations whose formatting or navigation to the matching reference-list entries needs correction.
 ---
 
 # Link Numeric Citations
 
-Make each visible citation number both correctly formatted and linked to its intended reference. A superscript number alone is not a working link.
+Make each visible citation marker correctly formatted and link its numbers to their intended references. A superscript number alone is not a working link.
 
 ## Detect and map
 
 1. Inspect the actual input, not just its filename: DOCX contains word/document.xml; PPTX contains ppt/presentation.xml; PDF starts with %PDF-; Markdown and HTML are text. If the extension disagrees with the contents, process the actual format and save the result with its correct extension without overwriting the original. If the user requests a new artifact, use its requested output format. For a legacy, scanned, or unrecognized file, identify a safe editable source or conversion path before editing.
-2. Identify the existing citation style, bibliography order, managed citation fields, and every in-text number. Map each number to exactly one source; repeated citations share the same target. Do not invent sources or guess an ambiguous match. Preserve brackets, punctuation, superscripts, and the established numbering rules.
+2. Identify the required citation style, bibliography order, managed citation fields, and every in-text number. Map each number to exactly one source; repeated citations share the same target. Do not invent sources or guess an ambiguous match. Preserve brackets, punctuation, and the established numbering rules. In Chinese academic prose with bracketed numeric citations, make the complete in-text marker (brackets, numbers, and separators) a true superscript unless the user's school, journal, or template specifies a baseline style. Leave bibliography entry labels at the baseline.
 
 ## Apply by format
 
-- **DOCX/Word:** Preserve Zotero, EndNote, or other managed fields and use that manager's update/link workflow. Otherwise bookmark each bibliography entry and insert a hyperlinked Word cross-reference of type **paragraph number**, not paragraph text. Use real list numbering and dynamic fields when renumbering is expected. For typed labels that cannot safely be converted, link the visible number to its entry bookmark and update displayed numbers after any reorder. Use the documents skill for DOCX authoring and visual verification.
+- **DOCX/Word:** Preserve Zotero, EndNote, or other managed fields and use that manager's update/link workflow. Otherwise bookmark each bibliography entry and insert a hyperlinked Word cross-reference of type **paragraph number**, not paragraph text. Use real list numbering and dynamic fields when renumbering is expected. For typed labels that cannot safely be converted, link the visible number to its entry bookmark and update displayed numbers after any reorder. When superscript style is required, apply Word's actual superscript formatting to every run of the complete in-text citation marker, including linked number runs; do not merely reduce the font size or raise only some digits. Use the documents skill for DOCX authoring and visual verification.
 - **PPTX/PowerPoint:** Treat each visible citation number, including numbers within a group, as independently clickable text or a shape. PowerPoint's ordinary internal link targets a **slide**, not an individual reference row. Link to a shared references slide only when page-level navigation meets the request; for exact per-reference navigation, use a dedicated appendix slide for each cited source. Preserve the slide's typography and layout, and assess the added slide count before changing a large deck. Use the presentations skill to edit and render the PPTX.
 - **Markdown/HTML:** Give each reference a stable id and link each visible superscript number to that id, for example <sup>[<a href="#ref-smith-2024">1</a>]</sup> and <li id="ref-smith-2024">Reference</li>.
 - **PDF:** Prefer adding links in the editable source, then export and verify the PDF. For a PDF-only input, inspect whether text and link annotations can be edited reliably; use the PDF skill and do not claim a scanned image has working citation links.
@@ -23,6 +23,6 @@ A range such as [5–7] has no visible 6 to click. Follow the required style; ex
 
 ## Verify
 
-Check every number-to-source mapping, including repeated and grouped citations, after editing or renumbering. Test representative links in Word, PowerPoint Slide Show, or the final browser/PDF viewer as applicable. Confirm that any exported PDF retained the links and that typography and layout remain intact. Report a PPTX link to a shared references slide as slide-level navigation, never as a jump to a specific row.
+Check every number-to-source mapping, including repeated and grouped citations, after editing or renumbering. For Chinese prose using superscript style, verify that the entire in-text marker is superscript and bibliography labels remain at the baseline. Test representative links in Word, PowerPoint Slide Show, or the final browser/PDF viewer as applicable. Confirm that any exported PDF retained the links and that typography and layout remain intact. Report a PPTX link to a shared references slide as slide-level navigation, never as a jump to a specific row.
 
 This skill handles navigation and numbering. Use the paper-ai skill separately when the task also requires finding sources or checking whether a source supports a claim.
