@@ -14,7 +14,7 @@ Make each visible citation marker correctly formatted and link its numbers to th
 
 ## Position citations
 
-When adding a new citation for a paragraph-level claim in Chinese prose, put its marker after the final relevant text and immediately before the paragraph's closing `。`. For a citation supporting a particular sentence or semicolon-separated clause within a longer paragraph, put it immediately before that claim's closing `。` or `；`. Do not append a marker after punctuation. When a task only formats or links existing citations, keep their positions; audit and report any markers that are not at the paragraph end instead of silently moving them.
+When adding a new citation in Chinese prose, default to placing its marker after the paragraph's final relevant text and immediately before the closing `。`. Use a sentence- or clause-level position inside the paragraph only when that location is needed to show which specific claim the source supports, or when the requested style requires it; then place the marker before that claim's closing `。` or `；`. Do not append a marker after punctuation. When a task only formats or links existing citations, keep their positions; audit and report any markers that are not at the paragraph end instead of silently moving them.
 
 ## Apply by format
 
